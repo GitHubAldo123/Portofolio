@@ -7,80 +7,16 @@
     <meta name="Keywords" content="Html, Tailwindcss, bootstrap,  javascript">
     <meta name="Author" content="Aldo">
     
-    <style>
-        
-        /* Animasi tirai terbelah */
-        @keyframes curtainClose {
-            0% {
-                width: 50%;
-            }
-            100% {
-                width: 0;
-            }
-        }
+    <link rel="stylesheet" href="css/style.css">
 
-        /* Custom Styles for Image Border */
-        .rgb-border {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            border: 5px solid transparent;
-            animation: borderGlow 2s infinite alternate;
-        }
-
-        @keyframes borderGlow {
-            0% {
-                border-color: rgb(255, 0, 0);
-                box-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgb(255, 0, 0), 0 0 30px rgb(255, 0, 0);
-            }
-            50% {
-                border-color: rgb(0, 255, 0);
-                box-shadow: 0 0 10px rgb(0, 255, 0), 0 0 20px rgb(0, 255, 0), 0 0 30px rgb(0, 255, 0);
-            }
-            100% {
-                border-color: rgb(0, 0, 255);
-                box-shadow: 0 0 10px rgb(0, 0, 255), 0 0 20px rgb(0, 0, 255), 0 0 30px rgb(0, 0, 255);
-            }
-        }
-
-        .curtain-left, .curtain-right {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 50%;
-            background-color: #4B5563; /* Warna abu-abu sesuai Tailwind bg-gray-700 */
-            z-index: 10;
-        }
-
-        .curtain-left {
-            left: 0;
-            animation: curtainClose 2s ease forwards;
-        }
-
-        .curtain-right {
-            right: 0;
-            animation: curtainClose 2s ease forwards;
-        }
-
-        .section-wrapper {
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Tambahkan MAPS gaya khusus jika diperlukan */
-        #map {
-            height: 400px;
-        }
-        </style>
-    
     <!-- menghubungkan linked file DB.js -->
-    <link rel="stylesheet" href="/database/backend.php">
+    <link rel="stylesheet" href="database/backend.php">
     
     <!-- menghubungkan linked file beckend.php-->
-    <link rel="stylesheet" href="/database/backend.php">
+    <link rel="stylesheet" href="database/backend.php">
     
     <!-- menghubungkan linked file index.js -->
-    <script src="/css/index.js"></script>
+    <script src="css/index.js"></script>
     
     <!-- framework Tailwindcss -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -186,16 +122,16 @@
                     <div class="relative">
                         <button id="prevBtn" class="absolute left-0 z-10 p-2 text-white transform -translate-y-1/2 bg-gray-700 top-1/2 hover:bg-gray-600"></button>
                         <div id="carousel" class="flex space-x-4 overflow-x-auto scroll-hidden">
-                            <img src="/img/p9.jpg" class="w-48 h-auto" alt="Movie 1">
-                            <img src="/img/p7.jpg" class="w-48 h-auto" alt="Movie 2">
-                            <img src="/img/p2.jpg" class="w-48 h-auto" alt="Movie 3">
-                            <img src="/img/p3.jpg" class="w-48 h-auto" alt="Movie 4">
-                            <img src="/img/p4.jpg" class="w-48 h-auto" alt="Movie 5">
-                            <img src="/img/p5.jpg" class="w-48 h-auto" alt="Movie 6">
-                            <img src="/img/p8.jpg" class="w-48 h-auto" alt="Movie 7">
-                            <img src="/img/p6.jpg" class="w-48 h-auto" alt="Movie 8">
-                            <img src="/img/p1.jpg" class="w-48 h-auto" alt="Movie 9">
-                            <img src="/img/p10.jpg" class="w-48 h-auto" alt="Movie 10">
+                            <img src="img/p9.jpg" class="w-48 h-auto" alt="Movie 1">
+                            <img src="img/p7.jpg" class="w-48 h-auto" alt="Movie 2">
+                            <img src="img/p2.jpg" class="w-48 h-auto" alt="Movie 3">
+                            <img src="img/p3.jpg" class="w-48 h-auto" alt="Movie 4">
+                            <img src="img/p4.jpg" class="w-48 h-auto" alt="Movie 5">
+                            <img src="img/p5.jpg" class="w-48 h-auto" alt="Movie 6">
+                            <img src="img/p8.jpg" class="w-48 h-auto" alt="Movie 7">
+                            <img src="img/p6.jpg" class="w-48 h-auto" alt="Movie 8">
+                            <img src="img/p1.jpg" class="w-48 h-auto" alt="Movie 9">
+                            <img src="img/p10.jpg" class="w-48 h-auto" alt="Movie 10">
                         </div>
                         <button id="nextBtn" class="absolute right-0 z-10 p-2 text-white transform -translate-y-1/2 bg-gray-700 top-1/2 hover:bg-gray-600">›</button>
                     </div>
@@ -222,7 +158,7 @@
             <div class="mx-4 auto px- max-w-7xl sm:px-6 lg:px-52">
                 <div class="flex flex-col items-center justify-center sm:flex-row"> 
                     <div class="p-4 sm:w-1/2 rgb-border" style="width: 300px;">
-                        <img src="/img/Profil.png" alt="Foto Profil" class="rounded-lg shadow-md">
+                        <img src="img/Profil.png" alt="Foto Profil" class="rounded-lg shadow-md">
                     </div>
                     <div class="mt-4 sm:w-1/2 sm:mt-0 sm:pl-8">
                         <h2 class="text-3xl font-bold">Tentang Saya</h2>

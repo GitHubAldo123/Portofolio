@@ -1,0 +1,62 @@
+        /* Animasi tirai terbelah */
+        @keyframes curtainClose {
+            0% {
+                width: 50%;
+            }
+            100% {
+                width: 0;
+            }
+        }
+
+        /* Custom Styles for Image Border */
+        .rgb-border {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 5px solid transparent;
+            animation: borderGlow 2s infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            0% {
+                border-color: rgb(255, 0, 0);
+                box-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgb(255, 0, 0), 0 0 30px rgb(255, 0, 0);
+            }
+            50% {
+                border-color: rgb(0, 255, 0);
+                box-shadow: 0 0 10px rgb(0, 255, 0), 0 0 20px rgb(0, 255, 0), 0 0 30px rgb(0, 255, 0);
+            }
+            100% {
+                border-color: rgb(0, 0, 255);
+                box-shadow: 0 0 10px rgb(0, 0, 255), 0 0 20px rgb(0, 0, 255), 0 0 30px rgb(0, 0, 255);
+            }
+        }
+
+        .curtain-left, .curtain-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            background-color: #4B5563; /* Warna abu-abu sesuai Tailwind bg-gray-700 */
+            z-index: 10;
+        }
+
+        .curtain-left {
+            left: 0;
+            animation: curtainClose 2s ease forwards;
+        }
+
+        .curtain-right {
+            right: 0;
+            animation: curtainClose 2s ease forwards;
+        }
+
+        .section-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Tambahkan MAPS gaya khusus jika diperlukan */
+        #map {
+            height: 400px;
+        }
