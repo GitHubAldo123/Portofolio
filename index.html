@@ -8,6 +8,7 @@
     <meta name="Author" content="Aldo">
     
     <style>
+        
         /* Animasi tirai terbelah */
         @keyframes curtainClose {
             0% {
@@ -100,7 +101,7 @@
                     <a href="#Home" class="text-5xl font-extrabold text-gray-800">Portofolio</a>
                 
                     <div class="hidden sm:flex sm:items-center sm:space-x-6">
-                        <a href="#Home" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
+                        <a href="#home" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
                             <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-blue-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
                             <span class="relative z-10">Home</span>
                         </a>
@@ -138,22 +139,29 @@
                     </button>
                 </div>
                 
-                <div id="navbarCollapse" class="sm:hidden collapse">
+                <!-- menu mode collabs small icon -->
+                <div id="navbarCollapse" class="z-50 sm:hidden collapse">
                     <ul class="flex flex-col mt-4 sm:flex-row sm:mt-0">
                         <li class="flex-auto text-center sm:text-left">
-                            <a href="#" class="text-gray-800 transition-colors hover:text-gray-900">Home</a>
+                            <a href="#home" class="text-red-500 transition-colors hover:text-white">Home</a>
                         </li>
                         <li class="flex-auto text-center sm:text-left">
-                            <a href="#" class="text-gray-800 transition-colors hover:text-gray-900">About</a>
+                            <a href="#About" class="text-red-500 transition-colors hover:text-white">About</a>
                         </li>
                         <li class="flex-auto text-center sm:text-left">
-                            <a href="#" class="text-gray-800 transition-colors hover:text-gray-900">Experience</a>
+                            <a href="#experience" class="text-red-500 transition-colors hover:text-white">Experience</a>
                         </li>
                         <li class="flex-auto text-center sm:text-left">
-                            <a href="#" class="text-gray-800 transition-colors hover:text-gray-900">Skill</a>
+                            <a href="#Result" class="text-red-500 transition-colors hover:text-white">ResultWork</a>
                         </li>
                         <li class="flex-auto text-center sm:text-left">
-                            <a href="#" class="text-gray-800 transition-colors hover:text-gray-900">Get Contact</a>
+                            <a href="#layanan" class="text-red-500 transition-colors hover:text-white">layanan</a>
+                        </li>
+                        <li class="flex-auto text-center sm:text-left">
+                            <a href="#skills" class="text-red-500 transition-colors hover:text-white">Skill</a>
+                        </li>
+                        <li class="flex-auto text-center sm:text-left">
+                            <a href="#contact" class="text-red-500 transition-colors hover:text-white">Get Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -423,16 +431,18 @@
         </footer>
         
          <!-- Back to Home Button -->
-         <a href="#Home" id="scrollToTopBtn" class="fixed z-50 p-2 text-white bg-gray-800 rounded-full bottom-4 right-4 hover:text-gray-400">
+        <a href="#home" id="scrollToTopBtn" class="fixed z-50 p-2 text-white bg-gray-800 rounded-full bottom-4 right-4 hover:text-gray-400">
             <i class="text-2xl bi bi-capslock-fill"></i>
         </a>
+
         <!-- Audio Element -->
         <audio id="backgroundMusic" src="/audio/ReelAudio.mp3"></audio>
-        
+
             <!-- JavaScript -->
-        </div>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        </div>
-    
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
 </body>
 </html>

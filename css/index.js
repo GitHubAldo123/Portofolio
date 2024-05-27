@@ -1,38 +1,20 @@
-// Play background music
-const backgroundMusic = document.getElementById('backgroundMusic');
-if (backgroundMusic) {
-    backgroundMusic.play();
-}
 
-// Scroll to top logic
-const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-if (scrollToTopBtn) {
-    scrollToTopBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-        document.querySelector('#Home').scrollIntoView({
-            behavior: 'smooth'
+// Menu bar agar bisa kelipat
+    document.addEventListener('DOMContentLoaded', function() {
+        var collapseButton = document.querySelector('[data-bs-toggle="collapse"]');
+        var collapseElement = document.querySelector(collapseButton.getAttribute('data-bs-target'));
+
+        collapseButton.addEventListener('click', function() {
+            var isExpanded = collapseElement.classList.contains('show');
+            if (isExpanded) {
+                collapseElement.classList.remove('show');
+            } else {
+                collapseElement.classList.add('show');
+            }
         });
     });
-}
 
-// Navigation bar
-const navbarCollapse = document.getElementById('navbarCollapse');
-const toggleButton = document.querySelector('[data-bs-toggle="collapse"]');
-if (toggleButton && navbarCollapse) {
-    toggleButton.addEventListener('click', () => {
-        navbarCollapse.classList.toggle('hidden');
-    });
-
-    // Close menu when a link is clicked
-    const menuLinks = document.querySelectorAll('#navbarCollapse a');
-    menuLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-            navbarCollapse.classList.add('hidden');
-        });
-    });
-}
-
-                            // HOME
+             // HOME
 document.addEventListener('DOMContentLoaded', () => {
 
     //     // Scroll image di area Home
@@ -130,7 +112,7 @@ if (skillsElement) {
     skillsElement.classList.toggle("hidden");
 }
 
-// Initialize map
+// mode active maps
 function initMap() {
     const location = { lat: -6.743673, lng: 108.453127 }; // Coordinates of Cirebon, Indonesia
     const map = new google.maps.Map(document.getElementById('map'), {
@@ -146,3 +128,18 @@ function initMap() {
 if (typeof google !== 'undefined' && typeof google.maps !== 'undefined') {
     initMap();
 }
+
+// Play background music
+const backgroundMusic = document.getElementById('backgroundMusic');
+if (backgroundMusic) {
+backgroundMusic.play();
+}
+
+// Scroll ke Home perlahan
+document.getElementById('scrollToTopBtn').addEventListener('click', function(event) {
+        event.preventDefault(); // Mencegah tindakan default dari tautan
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Melakukan scroll halus
+        });
+    });
