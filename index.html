@@ -1,0 +1,438 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Pembuatan Portofolio dengan">
+    <meta name="Keywords" content="Html, Tailwindcss, bootstrap,  javascript">
+    <meta name="Author" content="Aldo">
+    
+    <style>
+        /* Animasi tirai terbelah */
+        @keyframes curtainClose {
+            0% {
+                width: 50%;
+            }
+            100% {
+                width: 0;
+            }
+        }
+
+        /* Custom Styles for Image Border */
+        .rgb-border {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 5px solid transparent;
+            animation: borderGlow 2s infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            0% {
+                border-color: rgb(255, 0, 0);
+                box-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgb(255, 0, 0), 0 0 30px rgb(255, 0, 0);
+            }
+            50% {
+                border-color: rgb(0, 255, 0);
+                box-shadow: 0 0 10px rgb(0, 255, 0), 0 0 20px rgb(0, 255, 0), 0 0 30px rgb(0, 255, 0);
+            }
+            100% {
+                border-color: rgb(0, 0, 255);
+                box-shadow: 0 0 10px rgb(0, 0, 255), 0 0 20px rgb(0, 0, 255), 0 0 30px rgb(0, 0, 255);
+            }
+        }
+
+        .curtain-left, .curtain-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            background-color: #4B5563; /* Warna abu-abu sesuai Tailwind bg-gray-700 */
+            z-index: 10;
+        }
+
+        .curtain-left {
+            left: 0;
+            animation: curtainClose 2s ease forwards;
+        }
+
+        .curtain-right {
+            right: 0;
+            animation: curtainClose 2s ease forwards;
+        }
+
+        .section-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Tambahkan MAPS gaya khusus jika diperlukan */
+        #map {
+            height: 400px;
+        }
+        </style>
+    
+    <!-- menghubungkan linked file DB.js -->
+    <link rel="stylesheet" href="/database/backend.php">
+    
+    <!-- menghubungkan linked file beckend.php-->
+    <link rel="stylesheet" href="/database/backend.php">
+    
+    <!-- menghubungkan linked file index.js -->
+    <script src="/css/index.js"></script>
+    
+    <!-- framework Tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- framework Boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Portofolio</title>
+</head>
+<body>
+    <div class="bg-gray-500">
+        
+        <!-- navigasi -->
+        <nav class="shadow-md bg-inherit">
+            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between z-9999">
+                    <a href="#Home" class="text-5xl font-extrabold text-gray-800">Portofolio</a>
+                
+                    <div class="hidden sm:flex sm:items-center sm:space-x-6">
+                        <a href="#Home" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
+                            <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-blue-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
+                            <span class="relative z-10">Home</span>
+                        </a>
+                        <a href="#About" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
+                            <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-green-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
+                            <span class="relative z-10">About</span>
+                        </a>
+                        <a href="#experience" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
+                            <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-red-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
+                            <span class="relative z-10">Experience</span>
+                        </a>
+                        <a href="#Result" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
+                            <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-purple-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
+                            <span class="relative z-10">ResultWork</span>
+                        </a>
+                        <a href="#layanan" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
+                            <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-yellow-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
+                            <span class="relative z-10">layanan</span>
+                        </a>
+                        <a href="#skills" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
+                            <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-teal-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
+                            <span class="relative z-10">Skill</span>
+                        </a>
+                        <a href="#contact" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
+                            <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-indigo-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
+                            <span class="relative z-10">Contact</span>
+                        </a>
+                    </div>
+                
+                    <button type="button" class="inline-flex items-center justify-center p-2 text-gray-400 transition-colors rounded-md sm:hidden hover:text-gray-500" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div id="navbarCollapse" class="sm:hidden collapse">
+                    <ul class="flex flex-col mt-4 sm:flex-row sm:mt-0">
+                        <li class="flex-auto text-center sm:text-left">
+                            <a href="#" class="text-gray-800 transition-colors hover:text-gray-900">Home</a>
+                        </li>
+                        <li class="flex-auto text-center sm:text-left">
+                            <a href="#" class="text-gray-800 transition-colors hover:text-gray-900">About</a>
+                        </li>
+                        <li class="flex-auto text-center sm:text-left">
+                            <a href="#" class="text-gray-800 transition-colors hover:text-gray-900">Experience</a>
+                        </li>
+                        <li class="flex-auto text-center sm:text-left">
+                            <a href="#" class="text-gray-800 transition-colors hover:text-gray-900">Skill</a>
+                        </li>
+                        <li class="flex-auto text-center sm:text-left">
+                            <a href="#" class="text-gray-800 transition-colors hover:text-gray-900">Get Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Home -->              
+        <header id="home" class="p-4 bg-gray-800">
+            <h1 class="text-3xl font-bold text-center text-white">My Gallery</h1>
+        </header>
+    
+        <main class="p-4">
+            <div id="HomeTop"></div> <!-- Changed ID to ensure uniqueness -->
+
+            <!-- Your existing content -->
+            <main class="p-4">
+                <section class="mb-6" id="HomeSection"> <!-- Changed ID to ensure uniqueness -->
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-2xl font-semibold">Popular Foto</h2>
+                        <div id="clock" class="ml-4 text-xl font-semibold text-gray-800"></div>
+                    </div>
+                    <div class="relative">
+                        <button id="prevBtn" class="absolute left-0 z-10 p-2 text-white transform -translate-y-1/2 bg-gray-700 top-1/2 hover:bg-gray-600"></button>
+                        <div id="carousel" class="flex space-x-4 overflow-x-auto scroll-hidden">
+                            <img src="/img/p9.jpg" class="w-48 h-auto" alt="Movie 1">
+                            <img src="/img/p7.jpg" class="w-48 h-auto" alt="Movie 2">
+                            <img src="/img/p2.jpg" class="w-48 h-auto" alt="Movie 3">
+                            <img src="/img/p3.jpg" class="w-48 h-auto" alt="Movie 4">
+                            <img src="/img/p4.jpg" class="w-48 h-auto" alt="Movie 5">
+                            <img src="/img/p5.jpg" class="w-48 h-auto" alt="Movie 6">
+                            <img src="/img/p8.jpg" class="w-48 h-auto" alt="Movie 7">
+                            <img src="/img/p6.jpg" class="w-48 h-auto" alt="Movie 8">
+                            <img src="/img/p1.jpg" class="w-48 h-auto" alt="Movie 9">
+                            <img src="/img/p10.jpg" class="w-48 h-auto" alt="Movie 10">
+                        </div>
+                        <button id="nextBtn" class="absolute right-0 z-10 p-2 text-white transform -translate-y-1/2 bg-gray-700 top-1/2 hover:bg-gray-600">›</button>
+                    </div>
+                </section>
+            </main>
+
+            
+            <!-- Tirai identitas -->
+            <section id="about" class="px-4 py-8 text-white rounded-md dekripsi bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+                <div class="section-wrapper">
+                    <div id="curtain-left" class="curtain-left"></div>
+                    <div id="curtain-right" class="curtain-right"></div>
+                    <div id="content" class="relative z-20 transition-opacity duration-1000 opacity-0">
+                        <h2 class="mb-4 text-3xl font-semibold">Identitas</h2>
+                        <p class="text-lg leading-relaxed indent-4">Saya seorang mahasiswa It yang bertempat tinggal saya berada di kota Cirebon-Jawa Barat. Saya mejalani sebagai pengembang perangkat lunak atau biasa di sebut Software Enginner, Saya bekerja melalui WFH (Work From Home)  atau Remote Work. Dengan pengalaman yang luas dan kemampuan kreatif yang kuat, saya selalu bersemangat untuk menghadirkan solusi yang inovatif untuk setiap proyek yang saya kerjakan.</p>
+                        <p class="mt-4 text-lg leading-relaxed">Selain itu, saya juga seorang Pengamat perkembangan di era digital dan senang mempelajari hal-hal baru yang menurut saya menarik untuk di pelajari. Saya percaya bahwa inspirasi terbaik seringkali datang dari pengalaman hidup yang beragam.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- about -->
+        <section id="About" class="py-12">
+            <div class="mx-4 auto px- max-w-7xl sm:px-6 lg:px-52">
+                <div class="flex flex-col items-center justify-center sm:flex-row"> 
+                    <div class="p-4 sm:w-1/2 rgb-border" style="width: 300px;">
+                        <img src="/img/Profil.png" alt="Foto Profil" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="mt-4 sm:w-1/2 sm:mt-0 sm:pl-8">
+                        <h2 class="text-3xl font-bold">Tentang Saya</h2>
+                        
+                        <!-- text run Logic Code Java Script -->
+                        <p class="text-gray-600 my-2.5 font-semibold">
+                            <span id="txt-run"></span>
+                        </p>
+                        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+                        <script>
+                            var typed = new Typed("#txt-run", {
+                                strings: [
+                                    "Halo! Nama saya adalah Aldo. Saya seorang Software Engineer lebih spesifiknya di bidang WEB developer. Untuk saat ini saya masih menjalani kuliah di salah satu perguruan tinggi kota Cirebon di jurusan IT. Saya memiliki passion di WEB Developer sejak pertama kali mengenal perkembangan digital. Menurut saya, ini sangat menarik untuk dipelajari di masa sekarang hingga masa depan."
+                                ],
+                                typeSpeed: 75,
+                                loop: true,
+                                backSpeed: 50,
+                                backDelay: 2000
+                            });
+                        </script>
+                        <button type="button" class="inline-flex items-center justify-center p-2 text-white transition-colors bg-blue-500 rounded-md hover:bg-blue-600" onclick="showSkills()" src="#skills">
+                            Lihat Keahlian Saya
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+          <!-- Experience -->
+        <section id="experience" class="py-12">
+            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div class="flex flex-col items-center">
+                    <h2 class="text-3xl font-bold">Pengalaman Saya</h2>
+                    <p class="text-gray-600">Berikut adalah beberapa pengalaman kerja saya di bidang WEB Development:</p>
+                    <ul class="mt-4 space-y-4">
+                        <li class="p-4 bg-white rounded-lg shadow-md">
+                            <h3 class="text-2xl font-semibold">WEB Developer di Perusahaan Google</h3>
+                            <p class="text-gray-600">Jan 2024 - Sekarang</p>
+                            <p class="mt-2 text-gray-600">Mengerjakan berbagai proyek pengembangan web menggunakan teknologi modern seperti HTML, CSS, JavaScript, dan framework seperti Tailwindcss dan Node.js.</p>
+                        </li>
+                        <li class="p-4 bg-white rounded-lg shadow-md">
+                            <h3 class="text-2xl font-semibold">Internship di Perusahaan nvidia</h3>
+                            <p class="text-gray-600">Jul 2025 - Des 2026</p>
+                            <p class="mt-2 text-gray-600">Membantu tim pengembangan dalam berbagai tugas, termasuk debugging dan pengujian aplikasi web serta pembuatan dokumentasi teknis.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ResultWork -->
+        <div id="Result" class="container py-8 mx-auto">
+            <h1 class="mb-6 text-3xl font-bold">Hasil Kerja Perusahaan</h1>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Card 1 -->
+                <div class="overflow-hidden bg-white rounded-lg shadow-md">
+                    <a href="https://himakom.vercel.app/" target="_blank">
+                        <img src="/img/project1.jpg" alt="Project 1" class="object-cover object-center w-full h-48">
+                        <div class="p-4">
+                            <h2 class="mb-2 text-xl font-bold">Proyek Himakoom</h2>
+                            <p class="text-gray-700">Himakom adalah sebuah instansi himpunan mahasiswa komputer</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Card 2 -->
+                <div class="overflow-hidden bg-white rounded-lg shadow-md">
+                    <a href="https://websiteproyek2.com" target="_blank">
+                        <img src="project2.jpg" alt="Project 2" class="object-cover object-center w-full h-48">
+                        <div class="p-4">
+                            <h2 class="mb-2 text-xl font-bold">Proyek B</h2>
+                            <p class="text-gray-700">Deskripsi singkat tentang proyek B.</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Card 3 -->
+                <div class="overflow-hidden bg-white rounded-lg shadow-md">
+                    <a href="https://websiteproyek3.com" target="_blank">
+                        <img src="project3.jpg" alt="Project 3" class="object-cover object-center w-full h-48">
+                        <div class="p-4">
+                            <h2 class="mb-2 text-xl font-bold">Proyek C</h2>
+                            <p class="text-gray-700">Deskripsi singkat tentang proyek C.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Skills -->
+        <section id="skills" class="py-12 bg-gray-100">
+            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div class="flex flex-col items-center">
+                    <h2 class="text-3xl font-bold">Keahlian Saya</h2>
+                    <p class="text-gray-600">Berikut adalah beberapa keahlian yang saya miliki dalam bidang WEB Development:</p>
+                    <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <div class="p-4 bg-white rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold">HTML</h3>
+                            <p class="mt-2 text-gray-600">Pemahaman yang kuat tentang struktur dan semantik HTML5.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold">CSS</h3>
+                            <p class="mt-2 text-gray-600">Kemampuan untuk membuat desain responsif dan animasi menggunakan CSS3 dan framework seperti Tailwind CSS.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold">JavaScript</h3>
+                            <p class="mt-2 text-gray-600">Pengalaman dalam menggunakan JavaScript untuk membuat aplikasi web dinamis dan interaktif.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold">React</h3>
+                            <p class="mt-2 text-gray-600">Pengalaman dalam membangun aplikasi single-page (SPA) menggunakan React.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold">Node.js</h3>
+                            <p class="mt-2 text-gray-600">Kemampuan untuk membuat backend server menggunakan Node.js dan Express.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold">Git</h3>
+                            <p class="mt-2 text-gray-600">Pengalaman dalam menggunakan sistem kontrol versi Git untuk mengelola kode sumber.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Kritik dan saran -->
+        <div id="layanan" class="py-12">
+            <h1 class="mb-4 text-3xl font-bold">Pelayanan</h1>
+            <h3 class="mb-4 text-xl">Melayani pembaca adalah kewajiban kami termasuk kritik dan saran</h3>
+            <form class="space-y-4">
+                <div class="p-4 bg-gray-100 rounded-md kritik">
+                    <h4 class="text-lg font-semibold">Kritik</h4>
+                    <textarea class="w-full h-24 p-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" placeholder="Masukkan kritik Anda"></textarea>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-md saran">
+                    <h4 class="text-lg font-semibold">Saran</h4>
+                    <textarea class="w-full h-24 p-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" placeholder="Masukkan saran Anda"></textarea>
+                </div>
+                <button type="submit" class="w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">Kirim</button>
+            </form>
+        </div>
+        
+
+    <!-- Section Contact Saya -->
+    <section id="contact" class="py-12">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center mb-8">
+                <h2 class="mb-2 text-3xl font-bold">Kontak Saya</h2>
+                <p class="text-gray-600">Ingin berkolaborasi atau memiliki pertanyaan? Hubungi saya melalui form di bawah ini:</p>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:space-x-4">
+                <div class="sm:w-1/2">
+                    <div id="map" class="w-full border border-gray-300"></div>
+                </div>
+                <div class="mt-6 sm:w-1/2 sm:mt-0">
+                    <form class="w-full max-w-lg" method="POST" action="backend.php">
+                        <div class="mb-4">
+                            <label class="block text-gray-700" for="name">Nama</label>
+                            <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:shadow-outline" type="text" id="name" name="name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700" for="email">Email</label>
+                            <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:shadow-outline" type="email" id="email" name="email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700" for="message">Pesan</label>
+                            <textarea class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:shadow-outline" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button class="px-4 py-2 text-white transition-colors bg-blue-500 rounded-md hover:bg-blue-600" type="submit">Kirim</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- script Key API maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC56v9F10HzQZzeYXP1ANS4oXvWYeJLgAQ&callback=initMap"></script>
+
+        <!-- Footer -->
+        <footer class="py-4 bg-gray-800">
+            <div class="flex justify-center mb-4 space-x-4">
+                <a href="https://www.facebook.com/profile.php?id=100064512853181&mibextid=ZbWKwL" class="text-white hover:text-gray-400">
+                    <i class="text-2xl bi bi-facebook"></i>
+                </a>
+                <a href="https://wa.me/6283153682903" class="text-white hover:text-gray-400">
+                    <i class="text-2xl bi bi-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/xip.aldo?igsh=YzAwZjE1ZTI0Zg==" class="text-white hover:text-gray-400">
+                    <i class="text-2xl bi bi-instagram"></i>
+                </a>
+                <a href="www.linkedin.com/in/
+                aldo-project-69358030a" class="text-white hover:text-gray-400">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="https://x.com/include365?t=7MiwGHnRuY9ft8yXsh7z9w&s=08" class="text-white hover:text-gray-400">
+                    <i class="text-2xl bi bi-twitter-x"></i>
+                </a>
+                <a href="https://www.youtube.com/@aldogaming5771" class="text-white hover:text-gray-400">
+                    <i class="text-2xl bi bi-youtube"></i>
+                </a>
+            </div>
+            <div class="px-4 mx-auto text-center text-white max-w-7xl sm:px-6 lg:px-8">
+                <p>&copy; 2024 Aldo. All rights reserved.</p>
+            </div>
+        </footer>
+        
+         <!-- Back to Home Button -->
+         <a href="#Home" id="scrollToTopBtn" class="fixed z-50 p-2 text-white bg-gray-800 rounded-full bottom-4 right-4 hover:text-gray-400">
+            <i class="text-2xl bi bi-capslock-fill"></i>
+        </a>
+        <!-- Audio Element -->
+        <audio id="backgroundMusic" src="/audio/ReelAudio.mp3"></audio>
+        
+            <!-- JavaScript -->
+        </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        </div>
+    
+</body>
+</html>
