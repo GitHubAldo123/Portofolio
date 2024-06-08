@@ -1,75 +1,69 @@
+function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+}
 
-// Menu bar agar bisa kelipat
-    document.addEventListener('DOMContentLoaded', function() {
-        var collapseButton = document.querySelector('[data-bs-toggle="collapse"]');
-        var collapseElement = document.querySelector(collapseButton.getAttribute('data-bs-target'));
-
-        collapseButton.addEventListener('click', function() {
-            var isExpanded = collapseElement.classList.contains('show');
-            if (isExpanded) {
-                collapseElement.classList.remove('show');
-            } else {
-                collapseElement.classList.add('show');
-            }
-        });
-    });
+function hideMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.add('hidden');
+}
 
              // HOME
 document.addEventListener('DOMContentLoaded', () => {
 
     //     // Scroll image di area Home
-    const carousel = document.getElementById('carousel');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+const carousel = document.getElementById('carousel');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
-    if (carousel && prevBtn && nextBtn) {
-        const SCROLL_AMOUNT = 200; // Adjust the scroll amount as needed
-        const AUTO_SCROLL_INTERVAL = 2000; // Adjust the interval time as needed
+if (carousel && prevBtn && nextBtn) {
+    const SCROLL_AMOUNT = 200; // Adjust the scroll amount as needed
+    const AUTO_SCROLL_INTERVAL = 2000; // Adjust the interval time as needed
 
-        // Function to scroll the carousel
-        const scrollCarousel = (amount) => {
-            const currentScrollLeft = carousel.scrollLeft;
-            const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-            let newScrollLeft = currentScrollLeft + amount;
+    // Function to scroll the carousel
+    const scrollCarousel = (amount) => {    
+        const currentScrollLeft = carousel.scrollLeft;
+        const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+        let newScrollLeft = currentScrollLeft + amount;
 
-            // If reached the end, reset scroll position to the beginning
-            if (newScrollLeft >= maxScrollLeft) {
+        // If reached the end, reset scroll position to the beginning
+        if (newScrollLeft >= maxScrollLeft) {
                 newScrollLeft = 0;
             } else if (newScrollLeft < 0) {
                 // If reached the beginning, reset scroll position to the end
                 newScrollLeft = maxScrollLeft;
-            }
+        }
 
-            carousel.scrollTo({
-                left: newScrollLeft,
+        carousel.scrollTo({
+            left: newScrollLeft,
                 behavior: 'smooth'
-            });
-        };
+        });
+    };
 
-        // Button click event listeners
-        prevBtn.addEventListener('click', () => scrollCarousel(-SCROLL_AMOUNT));
-        nextBtn.addEventListener('click', () => scrollCarousel(SCROLL_AMOUNT));
+    // Button click event listeners
+    prevBtn.addEventListener('click', () => scrollCarousel(-SCROLL_AMOUNT));
+    nextBtn.addEventListener('click', () => scrollCarousel(SCROLL_AMOUNT));
         
-        // Auto-scroll setup
-        let autoScrollInterval = setInterval(() => {
+    // Auto-scroll setup
+    let autoScrollInterval = setInterval(() => {
+        scrollCarousel(SCROLL_AMOUNT);
+    }, AUTO_SCROLL_INTERVAL);
+
+    // Start auto-scroll immediately
+    scrollCarousel(SCROLL_AMOUNT);
+        
+    // Pause auto-scroll on hover
+    carousel.addEventListener('mouseenter', () => {
+        clearInterval(autoScrollInterval);
+    });
+
+    // Resume auto-scroll when hover ends
+    carousel.addEventListener('mouseleave', () => {
+        autoScrollInterval = setInterval(() => {
             scrollCarousel(SCROLL_AMOUNT);
         }, AUTO_SCROLL_INTERVAL);
-
-        // Start auto-scroll immediately
-        scrollCarousel(SCROLL_AMOUNT);
-        
-        // Pause auto-scroll on hover
-        carousel.addEventListener('mouseenter', () => {
-            clearInterval(autoScrollInterval);
-        });
-
-        // Resume auto-scroll when hover ends
-        carousel.addEventListener('mouseleave', () => {
-            autoScrollInterval = setInterval(() => {
-                scrollCarousel(SCROLL_AMOUNT);
-            }, AUTO_SCROLL_INTERVAL);
-        });
-    }
+    });
+}
 
     // // Animasi deskripsi pada area Home
     const content = document.getElementById('content');

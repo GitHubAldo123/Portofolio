@@ -19,6 +19,7 @@
     <script src="js/index.js"></script>
     
     <!-- framework Tailwindcss -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- framework Boostrap -->
@@ -29,13 +30,11 @@
 </head>
 <body>
     <div class="bg-gray-500">
-        
-        <!-- navigasi -->
         <nav class="shadow-md bg-inherit">
             <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between z-9999">
+                <div class="flex items-center justify-between">
                     <a href="#Home" class="text-5xl font-extrabold text-gray-800">Portofolio</a>
-                
+                    
                     <div class="hidden sm:flex sm:items-center sm:space-x-6">
                         <a href="#home" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
                             <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-blue-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
@@ -55,7 +54,7 @@
                         </a>
                         <a href="#layanan" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
                             <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-yellow-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
-                            <span class="relative z-10">layanan</span>
+                            <span class="relative z-10">Layanan</span>
                         </a>
                         <a href="#skills" class="relative inline-block text-gray-800 transition-colors hover:text-white group">
                             <span class="absolute inset-0 transition-transform transform translate-x-0 translate-y-0 bg-teal-500 group-hover:translate-y-1 group-hover:translate-x-1"></span>
@@ -66,40 +65,25 @@
                             <span class="relative z-10">Contact</span>
                         </a>
                     </div>
-                
-                    <button type="button" class="inline-flex items-center justify-center p-2 text-gray-400 transition-colors rounded-md sm:hidden hover:text-gray-500" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    
+                    <button type="button" class="inline-flex items-center justify-center p-2 text-gray-400 transition-colors rounded-md sm:hidden hover:text-gray-500" onclick="toggleMenu()">
                         <span class="sr-only">Toggle navigation</span>
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
-                
-                <!-- menu mode collabs small icon -->
-                <div id="navbarCollapse" class="z-50 sm:hidden collapse">
-                    <ul class="flex flex-col mt-4 sm:flex-row sm:mt-0">
-                        <li class="flex-auto text-center sm:text-left">
-                            <a href="#home" class="text-red-500 transition-colors hover:text-white">Home</a>
-                        </li>
-                        <li class="flex-auto text-center sm:text-left">
-                            <a href="#About" class="text-red-500 transition-colors hover:text-white">About</a>
-                        </li>
-                        <li class="flex-auto text-center sm:text-left">
-                            <a href="#experience" class="text-red-500 transition-colors hover:text-white">Experience</a>
-                        </li>
-                        <li class="flex-auto text-center sm:text-left">
-                            <a href="#Result" class="text-red-500 transition-colors hover:text-white">ResultWork</a>
-                        </li>
-                        <li class="flex-auto text-center sm:text-left">
-                            <a href="#layanan" class="text-red-500 transition-colors hover:text-white">layanan</a>
-                        </li>
-                        <li class="flex-auto text-center sm:text-left">
-                            <a href="#skills" class="text-red-500 transition-colors hover:text-white">Skill</a>
-                        </li>
-                        <li class="flex-auto text-center sm:text-left">
-                            <a href="#contact" class="text-red-500 transition-colors hover:text-white">Get Contact</a>
-                        </li>
-                    </ul>
+            </div>
+        
+            <div id="mobileMenu" class="hidden sm:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-white hover:bg-blue-500" onclick="hideMenu()">Home</a>
+                    <a href="#About" class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-white hover:bg-green-500" onclick="hideMenu()">About</a>
+                    <a href="#experience" class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-white hover:bg-red-500" onclick="hideMenu()">Experience</a>
+                    <a href="#Result" class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-white hover:bg-purple-500" onclick="hideMenu()">ResultWork</a>
+                    <a href="#layanan" class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-white hover:bg-yellow-500" onclick="hideMenu()">Layanan</a>
+                    <a href="#skills" class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-white hover:bg-teal-500" onclick="hideMenu()">Skill</a>
+                    <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-white hover:bg-indigo-500" onclick="hideMenu()">Contact</a>
                 </div>
             </div>
         </nav>
